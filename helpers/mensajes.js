@@ -17,13 +17,38 @@ const mostrarMenu = () => {
     console.log( ` ${ '0'.green }. Salir\n` );
 
 
+    const readLine = require( 'readline' ).createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    readLine.question( 'Seleccion una opcion: ', (opt) => {
+        readLine.close();
+    } );
 
 }
+
+
+    const pausa =  () => {
+
+        const readLine =  require( 'readline' ).createInterface({
+        input: process.stdin,
+        output: process.stdout
+
+        });
+
+            readLine.question( `\nPresione: ${ 'ENTER'.green } Para continuar \n`, (opt) => {
+            readLine.close();
+
+        } );
+
+    } 
 
 
 
 module.exports = {
 
-    mostrarMenu
+    mostrarMenu,
+    pausa
 
 }
