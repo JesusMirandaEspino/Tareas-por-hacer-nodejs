@@ -3,6 +3,8 @@ require('colors');
 
 const mostrarMenu = () => {
 
+    return new Promise( resolve => {
+
     console.clear();
     console.log( '============================='.green );
     console.log( '    Seleccione una opcion    '.green );
@@ -17,30 +19,38 @@ const mostrarMenu = () => {
     console.log( ` ${ '0'.green }. Salir\n` );
 
 
-    const readLine = require( 'readline' ).createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+        const readLine = require( 'readline' ).createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
 
-    readLine.question( 'Seleccion una opcion: ', (opt) => {
-        readLine.close();
-    } );
+        readLine.question( 'Seleccion una opcion: ', (opt) => {
+            readLine.close();
+            resolve( opt );
+        });
+    });
 
 }
 
 
     const pausa =  () => {
 
-        const readLine =  require( 'readline' ).createInterface({
-        input: process.stdin,
-        output: process.stdout
+        return new Promise( resolve => {
 
-        });
+            const readLine =  require( 'readline' ).createInterface({
+            input: process.stdin,
+            output: process.stdout
+            });
 
             readLine.question( `\nPresione: ${ 'ENTER'.green } Para continuar \n`, (opt) => {
             readLine.close();
+            resolve( opt );
 
-        } );
+            });
+
+        });
+
+
 
     } 
 
