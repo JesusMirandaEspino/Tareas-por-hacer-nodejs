@@ -70,6 +70,7 @@ const leerInput = async( message ) => {
                 if( value.length === 0 ){
                     return 'Por favor Ingresa un Valor';
                 }
+                return true;
             }
 
         }

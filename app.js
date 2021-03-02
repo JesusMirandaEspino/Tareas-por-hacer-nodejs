@@ -15,27 +15,27 @@ const main = async() => {
 
     do{
         opt =  await  inquirerMenu();
-        console.log(opt);
 
-        
 
-        switch(opcion){
+       
 
-            case '1' : 
-            console.log('Opcion 1');
+        switch(opt.opcion){
+
+            case '1': 
             const desc = await leerInput('Descripcion: ');
             console.log(desc);
+            tareas.crearTarea(desc);
             break;
 
-            case '2' :
+            case '2':
             console.log( tareas._listado );
             break;
 
             default: break;
         }
 
-        await pausa();
-
+        
+         await pausa();
 
       //  if( opt !== '0' ){ await pausa(); }
 
