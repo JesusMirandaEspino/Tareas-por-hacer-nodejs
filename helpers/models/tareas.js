@@ -1,9 +1,10 @@
-class Tarea {
-    id = '';
-    desc = '';
-    completadoEn =  null;
+class Tareas {
+    _listado = {};
 
-    constructor( desc ){
-        this.desc = desc;
+    constructor(){
+        this._listado = {};
     }
 }
+
+
+module.exports = Tareas;
