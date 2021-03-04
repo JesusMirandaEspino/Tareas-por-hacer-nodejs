@@ -1,18 +1,24 @@
 require('colors');
 const Tarea = require('./models/tarea.js');
 const Tareas = require('./models/tareas.js');
-const{ guardarDB } = require('./helpers/guardarArchivo.js');
+const{ guardarDB, leerDB } = require('./helpers/guardarArchivo.js');
 
 const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer.js');
 
 
 const main = async() => {
-
-    console.log( 'hola mundo' );
-
     let opt = '';
     const tareas = new Tareas();
+
+    const tareasDB = leerDB();
+
     const tarea = new Tarea();
+
+    if( tareasDB ){
+        //
+    }
+
+    await pausa();
 
     do{
         opt =  await  inquirerMenu();
