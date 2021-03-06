@@ -1,10 +1,12 @@
 require('colors');
-const Tarea = require('./models/tarea.js');
-const Tareas = require('./models/tareas.js');
+
+
 const{ guardarDB, leerDB } = require('./helpers/guardarArchivo.js');
 
-const { inquirerMenu, pausa, leerInput } = require('./helpers/inquirer.js');
+const { inquirerMenu, pausa, leerInput, listadoTareasBorrar } = require('./helpers/inquirer.js');
 
+const Tarea = require('./models/tarea.js');
+const Tareas = require('./models/tareas.js');
 
 const main = async() => {
     let opt = '';
@@ -32,6 +34,19 @@ const main = async() => {
 
             case '2':
             tareas.listadoCompleto();
+            break;
+
+            case '3':
+            tareas.listaTareasCompletadas(true);
+            break;
+
+            case '4':
+            tareas.listaTareasCompletadas(false);
+            break;
+
+            case '6':
+                const id = await listadoTareasBorrar( tareas.listadoArr );
+                console.log({id});
 
             break;
 
